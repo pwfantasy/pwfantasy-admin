@@ -5,11 +5,12 @@
         .module('superstars.editor')
         .controller('EditorCtrl', EditorCtrl);
 
-    EditorCtrl.$inject = ['$state'];
+    EditorCtrl.$inject = ['slug', 'talent'];
 
-    function EditorCtrl($state) {
+    function EditorCtrl(slug, talent) {
         var vm = this;
 
-        vm.slug = $state.params.slug;
+        vm.slug = slug;
+        vm.talent = talent;
     }
 })();

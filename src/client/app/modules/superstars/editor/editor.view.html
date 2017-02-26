@@ -1,8 +1,50 @@
 <div class="row">
   <div class="col-sm-12">
-    <h2>Superstar Editor</h2>
+    <h2 ng-if="editorVm.talent">
+      {{editorVm.talent.name}}
+      <small>
+        <span class="label" ng-class="editorVm.talent.active ? 'label-success' : 'label-danger'">
+          {{editorVm.talent.active ? 'Active' : 'Inactive'}}
+        </span>
+      </small>
+    </h2>
 
-    {{editorVm.slug}}
+    <h2 ng-if="!editorVm.talent">
+      Create Superstar
+    </h2>
+
+    <form>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" name="name" placeholder="Bryan Danielson" value="{{editorVm.talent.name}}">
+          </div>
+
+          <div class="form-group">
+            <label for="slug">Slug</label>
+            <input type="text" class="form-control" name="slug" placeholder="bryan-danielson" value="{{editorVm.talent.slug}}">
+          </div>
+
+          <div class="form-group">
+            <label for="image">Image</label>
+            <input type="text" class="form-control" name="image" placeholder="bryan-danielson-1234.png" value="{{editorVm.talent.image}}">
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <img class="superstar" src="/assets/imgs/wwe/superstars/{{editorVm.talent.image}}" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="bio">Bio</label>
+        <textarea class="form-control" name="bio" rows="5">{{editorVm.talent.bio}}</textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary">{{editorVm.talent ? 'Update Superstar' : 'Create Superstar'}}</button>
+      <button type="submit" class="btn btn-danger" ng-if="editorVm.talent">Delete Superstar</button>
+    </form>
 
   </div>
 </div>

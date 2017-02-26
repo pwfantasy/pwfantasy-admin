@@ -1,12 +1,16 @@
 <div class="row">
-  <div class="col-sm-12">
-    <h2>Search Results <small>("{{searchVm.term}}")</small></h2>
+  <div class="col-sm-12" ng-if="searchVm.results.length">
+    <h2>Search Results <small ng-if="searchVm.term">("{{searchVm.term}}")</small></h2>
 
     <ul>
       <li ng-repeat="talent in searchVm.results">
         <a href="#" ui-sref="superstars.editor({slug: talent.slug})">{{talent.name}}</a>
       </li>
     </ul>
+  </div>
+
+  <div class="col-sm-12" ng-if="!searchVm.results.length">
+    <h2>No search results</h2>
   </div>
 </div>
 

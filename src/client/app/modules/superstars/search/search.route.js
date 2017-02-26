@@ -25,6 +25,8 @@
 
         getSearchResults.$inject = ['term', '$http'];
         function getSearchResults(term, $http) {
+            if (!term || !term.length) return Promise.resolve([]);
+
             return new Promise((resolve, reject) => {
                 function _success(response) {
                     resolve(response.data || []);
