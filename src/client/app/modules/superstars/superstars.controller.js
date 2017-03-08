@@ -5,9 +5,17 @@
         .module('superstars')
         .controller('SuperstarsCtrl', SuperstarsCtrl);
 
-    SuperstarsCtrl.$inject = [];
+    SuperstarsCtrl.$inject = ['$state'];
 
-    function SuperstarsCtrl() {
+    function SuperstarsCtrl($state) {
         var vm = this;
+
+        vm.search = function() {
+          if (!vm.term || !vm.term.length) return;
+
+          $state.go('superstars.search', {
+            term: vm.term
+          });
+        }
     }
 })();
