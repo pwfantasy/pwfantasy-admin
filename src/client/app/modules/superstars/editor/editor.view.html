@@ -13,27 +13,66 @@
       Create Superstar
     </h2>
 
-    <form>
+    <form ng-submit="editorVm.upsert()">
       <div class="row">
         <div class="col-sm-6">
           <div class="form-group">
             <label for="name">Name</label>
-            <input type="text" class="form-control" name="name" placeholder="Bryan Danielson" value="{{editorVm.talent.name}}">
+            <input type="text" class="form-control" name="name" placeholder="Bryan Danielson" ng-model="editorVm.talent.name">
           </div>
 
           <div class="form-group">
             <label for="slug">Slug</label>
-            <input type="text" class="form-control" name="slug" placeholder="bryan-danielson" value="{{editorVm.talent.slug}}">
+            <input type="text" class="form-control" name="slug" placeholder="bryan-danielson" ng-model="editorVm.talent.slug">
           </div>
 
           <div class="form-group">
-            <label for="image">Image</label>
-            <input type="text" class="form-control" name="image" placeholder="bryan-danielson-1234.png" value="{{editorVm.talent.image}}">
+            <label for="slug">Tier</label>
+            <select class="form-control">
+              <option>Main event</option>
+            </select>
+          </div>
+
+
+          <div class="form-group">
+            <label for="slug">Faction</label>
+            <select class="form-control">
+              <option>None</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="slug">Championship</label>
+            <select class="form-control">
+              <option>WWE Universal Champion</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="slug">Show</label>
+            <select class="form-control">
+              <option>Raw</option>
+            </select>
           </div>
         </div>
 
-        <div class="col-sm-6">
-          <img class="superstar" src="/assets/imgs/wwe/superstars/{{editorVm.talent.image}}" />
+        <div class="col-sm-6" ng-if="editorVm.talent">
+          <div class="row">
+            <div class="col-xs-6">
+              <img class="superstar center-block" src="/assets/imgs/wwe/superstars/{{editorVm.talent.image}}" />
+
+              <div class="form-group">
+                <label class="btn btn-default btn-file">
+                  Upload new image
+                  <input type="file" name="superstar-image" style="display:none;">
+                </label>
+              </div>
+            </div>
+
+            <div class="col-xs-6" ng-if="editorVm.talent.championship">
+            title
+            </div>
+          </div>
         </div>
       </div>
 
@@ -42,8 +81,8 @@
         <textarea class="form-control" name="bio" rows="5">{{editorVm.talent.bio}}</textarea>
       </div>
 
-      <button type="submit" class="btn btn-primary">{{editorVm.talent ? 'Update Superstar' : 'Create Superstar'}}</button>
-      <button type="submit" class="btn btn-danger" ng-if="editorVm.talent">Delete Superstar</button>
+      <input type="submit" class="btn btn-primary" value="{{editorVm.talent ? 'Update Superstar' : 'Create Superstar'}}">
+      <!-- <button type="submit" class="btn btn-danger" ng-if="editorVm.talent">Delete Superstar</button> --> 
     </form>
 
   </div>

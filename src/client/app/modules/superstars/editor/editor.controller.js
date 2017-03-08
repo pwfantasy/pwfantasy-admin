@@ -12,5 +12,10 @@
 
         vm.slug = slug;
         vm.talent = talent;
+
+
+        vm.upsert = function() {
+          console.log(vm.talent);
+        }
     }
 })();
