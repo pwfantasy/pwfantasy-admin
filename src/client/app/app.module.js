@@ -6,6 +6,7 @@
         'ngCookies',
         'dashboard',
         'superstars',
+        'matches',
         'header'
     ]);
 })();
