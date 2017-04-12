@@ -9,7 +9,7 @@
         $stateProvider
             .state('superstars.search', {
                 url: '/search/:term',
-                templateUrl: '/app/modules/superstars/search/search.view.html',
+                templateUrl: '/app/states/superstars/search/search.view.html',
                 controller: 'SearchCtrl',
                 controllerAs: 'searchVm',
                 resolve: {

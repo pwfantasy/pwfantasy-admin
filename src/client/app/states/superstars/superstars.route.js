@@ -9,7 +9,7 @@
         $stateProvider
             .state('superstars', {
                 url: '/superstars',
-                templateUrl: '/app/modules/superstars/superstars.view.html',
+                templateUrl: '/app/states/superstars/superstars.view.html',
                 controller: 'SuperstarsCtrl',
                 controllerAs: 'superstarsVm',
                 resolve: {

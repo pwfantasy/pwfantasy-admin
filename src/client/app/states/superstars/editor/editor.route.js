@@ -9,7 +9,7 @@
         $stateProvider
             .state('superstars.editor', {
                 url: '/edit/:slug',
-                templateUrl: '/app/modules/superstars/editor/editor.view.html',
+                templateUrl: '/app/states/superstars/editor/editor.view.html',
                 controller: 'EditorCtrl',
                 controllerAs: 'editorVm',
                 resolve: {
@@ -25,7 +25,7 @@
 
         getTalent.$inject = ['slug', '$http'];
         function getTalent(slug, $http) {
-            if (!slug || !slug.length) return Promise.resolve(false);
+            if (!slug || !slug.length) return Promise.reject();
 
             return new Promise((resolve, reject) => {
                 function _success(response) {

@@ -9,7 +9,7 @@
         $stateProvider
             .state('dashboard', {
                 url: '/',
-                templateUrl: '/app/modules/dashboard/dashboard.view.html',
+                templateUrl: '/app/states/dashboard/dashboard.view.html',
                 controller: 'DashboardCtrl',
                 controllerAs: 'dashboardVm',
                 resolve: {

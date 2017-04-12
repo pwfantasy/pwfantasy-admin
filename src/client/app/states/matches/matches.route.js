@@ -9,7 +9,7 @@
         $stateProvider
             .state('matches', {
                 url: '/matches',
-                templateUrl: '/app/modules/matches/matches.view.html',
+                templateUrl: '/app/states/matches/matches.view.html',
                 controller: 'MatchesCtrl',
                 controllerAs: 'matchesVm',
                 resolve: {
