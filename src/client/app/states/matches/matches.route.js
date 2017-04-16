@@ -11,9 +11,7 @@
                 url: '/matches',
                 templateUrl: '/app/states/matches/matches.view.html',
                 controller: 'MatchesCtrl',
-                controllerAs: 'matchesVm',
-                resolve: {
-                }
+                controllerAs: 'matchesVm'
             });
     }
 })();
