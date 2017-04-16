@@ -5,14 +5,13 @@
         .module('superstars.editor')
         .controller('EditorCtrl', EditorCtrl);
 
-    EditorCtrl.$inject = ['slug', 'talent'];
+    EditorCtrl.$inject = ['$state'];
 
-    function EditorCtrl(slug, talent) {
+    function EditorCtrl($state) {
         var vm = this;
 
-        vm.slug = slug;
-        vm.talent = talent;
-
+        vm.slug = $state.$current.locals.globals.slug;
+        vm.talent = $state.$current.locals.globals.talent; 
 
         vm.upsert = function() {
           console.log(vm.talent);

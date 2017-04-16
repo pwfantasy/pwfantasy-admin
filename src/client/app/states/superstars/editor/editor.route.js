@@ -7,6 +7,13 @@
 
     function configuration($stateProvider) {
         $stateProvider
+            .state('superstars.creator', {
+                url: '/create',
+                templateUrl: '/app/states/superstars/editor/editor.view.html',
+                controller: 'EditorCtrl',
+                controllerAs: 'editorVm'
+            }) 
+
             .state('superstars.editor', {
                 url: '/edit/:slug',
                 templateUrl: '/app/states/superstars/editor/editor.view.html',
@@ -20,7 +27,7 @@
 
         getSlug.$inject = ['$stateParams'];
         function getSlug($stateParams) {
-            return $stateParams.slug;
+            return $stateParams.slug || '';
         }
 
         getTalent.$inject = ['slug', '$http'];
